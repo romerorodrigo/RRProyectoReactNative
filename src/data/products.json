@@ -1,0 +1,168 @@
+
+[
+	{
+		"id": 1,
+		"title": "Gibson Les Paul Standard",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L54578000005000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L54578000005000-00-264x264.jpg",
+		"price": 3200,
+		"category": "guitars",
+		"brand": "Gibson",
+		"description": "Guitarra Gibson Les Paul Standard 60s Cherry",
+		"stock": 10
+	},
+	{
+		"id": 2,
+		"title": "Gibson SG Classic",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L54591000004000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L54591000004000-00-264x264.jpg",
+		"price": 2500,
+		"category": "guitars",
+		"brand": "Gibson",		
+		"description": "Guitarra Gibson SG Classic",
+		"stock": 15
+	},
+	{
+		"id": 3,
+		"title": "Fender Stratocaster Am Ultra",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L69991000001000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L69991000001000-00-264x264.jpg",		
+		"price": 2700,
+		"category": "guitars",
+		"brand": "Fender",		
+		"description": "Guitarra Fender Stratocaster American Ultra",
+		"stock": 5
+	},
+	{
+		"id": 4,
+		"title": "Fender Telecaster Am Prof",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L78119000004000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L78119000004000-00-264x264.jpg",
+		"price": 2600,
+		"category": "guitars",
+		"brand": "Fender",
+		"description": "Guitarra Fender Telecaster American Professional II",
+		"stock": 8
+	},
+	{
+		"id": 5,
+		"title": "Paul Reed Smith Custom24",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L82178000001000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L82178000001000-00-264x264.jpg",
+		"price": 4900,
+		"category": "guitars",
+		"brand": "Paul Reed Smith",
+		"description": "Guitarra Paul Reed Smith Custom 24",
+		"stock": 4
+	},
+	{
+		"id": 6,
+		"title": "Marshall JVM Series",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/480774000000000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/480774000000000-00-264x264.jpg",		
+		"price": 2800,
+		"category": "amps",
+		"brand": "Marshall",		
+		"description": "Amplificador Marshall JVM Series JVM410H",
+		"stock": 9
+	},
+	{
+		"id": 7,
+		"title": "Fender Twin Reverb Re '65",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/480505000000000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/480505000000000-00-264x264.jpg",		
+		"price": 2550,
+		"category": "amps",
+		"brand": "Fender",		
+		"description": "Amplificador Fender Vintage Reissue '65 Twin Reverb",
+		"stock": 4
+	},
+	{
+		"id": 8,
+		"title": "Vox AC30",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/423618000001000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/423618000001000-00-264x264.jpg",		
+		"price": 1850,
+		"category": "amps",
+		"brand": "Vox",
+		"description": "Amplificador VOX Custom AC30C2 30W 2x12",
+		"stock": 2
+	},
+	{
+		"id": 9,
+		"title": "Mesa Boogie Mark Vii",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L97360000001000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L97360000001000-00-264x264.jpg",		
+		"price": 3680,
+		"category": "amps",
+		"brand": "Mesa Boogie",		
+		"description": "Amplificador MESA-Boogie Mark VII 90W",
+		"stock": 1
+	},
+	{
+		"id": 10,
+		"title": "Laney Lionheart ",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/J00139000001000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/J00139000001000-00-264x264.jpg",		
+		"price": 1450,
+		"category": "amps",
+		"brand": "Laney",		
+		"description": "Amplificador Laney L20T-112 20W 1x12",
+		"stock": 16
+	},
+	{
+		"id": 11,
+		"title": "Boss OD3",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/151389000000000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/151389000000000-00-264x264.jpg",		
+		"price": 120,
+		"category": "pedals",
+		"brand": "Boss",		
+		"description": "Pedal Boss OD-3 OverDrive",
+		"stock": 22
+	},
+	{
+		"id": 12,
+		"title": "Line6 Helix Lt",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/J23118000000000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/J23118000000000-00-600x600.jpg",		
+		"price": 1350,
+		"category": "pedals",
+		"brand": "Line6",		
+		"description": "Pedalera Line6 Helix Multi-Effects",
+		"stock": 18
+	},
+	{
+		"id": 13,
+		"title": "Digitech Whammy V",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/H82721000000000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/H82721000000000-00-264x264.jpg",		
+		"price": 399,
+		"category": "pedals",
+		"brand": "Digitech",		
+		"description": "Pedal DigiTech Whammy V Pitch Shifting",
+		"stock": 11
+	},
+	{
+		"id": 14,
+		"title": "ProCo Rat",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/151501000000000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/151501000000000-00-600x600.jpg",		
+		"price": 199,
+		"category": "pedals",
+		"brand": "ProCo",		
+		"description": "Pedal ProCo Rat2 Distortion",
+		"stock": 24
+	},
+	{
+		"id": 15,
+		"title": "EHX Big Muff",
+		"images": ["https://media.guitarcenter.com/is/image/MMGS7/153314000000000-00-600x600.jpg"],
+		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/153314000000000-00-600x600.jpg",		
+		"price": 169,
+		"category": "pedals",
+		"brand": "Electro Harmonix",
+		"description": "Pedal Electro Harmonix Big Muff Pi Distortion/Sustainer",
+		"stock": 14
+	}
+]
