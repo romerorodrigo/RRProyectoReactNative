@@ -21,15 +21,15 @@ export default CategoryItem
 
 const styles = StyleSheet.create({
     image: {
-      height: 264,
-      width: 264,
-      borderRadius: 8
+      height: 160,
+      width: 160,
+      borderRadius: 8,
     },    
     additionalStyleCard: {
       flexDirection: 'row',
-      height: 264,
-      width: 264,
-      justifyContent: 'space-between',
+      height: 160,
+      width: '45%',
+      justifyContent: 'center',
       margin: 10,
       borderRadius: 10
     },    

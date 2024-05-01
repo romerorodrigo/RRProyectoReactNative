@@ -18,7 +18,7 @@ export default Footer
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: '95%',
     height: 70,
     backgroundColor: colors.allBlack,
     justifyContent: 'space-between',

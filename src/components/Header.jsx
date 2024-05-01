@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 70,
-    width: 70,
+    width: '20%',
     borderRadius: 8
   },    
   image_center: {
     height: 70,
-    width: 450,
+    width: '50%',
     borderRadius: 8
   }
 })
