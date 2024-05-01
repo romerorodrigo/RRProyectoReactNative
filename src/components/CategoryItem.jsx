@@ -1,17 +1,18 @@
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../constants/colors';
 import Card from './Card';
 
-const CategoryItem = ({category}) => {
+const CategoryItem = ({category, selectCategory = () => {} }) => {
   return (
     <Card style={styles.additionalStyleCard}>
-        <Image 
-          resizeMode='cover'
-          style = {styles.image}
-          source= {{ uri:category.image }}
-          //source={require('../../assets/CategoryGuitar.png')}
-        />
+        <Pressable onPress={()=>selectCategory(category)}>
+          <Image 
+            resizeMode='cover'
+            style = {styles.image}
+            source= {{ uri:category.image }}
+          />
+        </Pressable>
     </Card>
   )
 }
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
       width: 264,
       justifyContent: 'space-between',
       margin: 10,
+      borderRadius: 10
     },    
     text: {
         color: colors.gray100,

@@ -1,15 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { colors } from './src/constants/colors';
+import { useState } from "react"
 import Header from './src/components/Header';
 import Home from './src/screens/Home';
 import Footer from './src/components/Footer';
-import { colors } from './src/constants/colors';
+import ItemListCategory from './src/screens/ItemListCategory';
 
 export default function App() {
+
+  const [categorySelected, setCategorySelected] = useState("")
+
   return (
     <View style={styles.container}>
-      <Header title={"**_LA_FUSA_INSTRUMENTOS_**"}/>
-      <Home />
+      <Header/>
+      {!categorySelected ? (
+        <Home setCategorySelected={setCategorySelected} />
+        ) : (
+        <ItemListCategory categorySelected={categorySelected} setCategorySelected ={setCategorySelected}/>
+      )}
+      <Footer/>
     </View>
   );
 }

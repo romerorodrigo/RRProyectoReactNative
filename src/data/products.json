@@ -6,9 +6,9 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L54578000005000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L54578000005000-00-264x264.jpg",
 		"price": 3200,
-		"category": "guitars",
+		"category": "Guitars",
 		"brand": "Gibson",
-		"description": "Guitarra Gibson Les Paul Standard 60s Cherry",
+		"description": "Guitarra Gibson Les Paul Standard 60s Cherry. La línea standard de Gibson es un emblema de la marca por su calidad indiscutible",
 		"stock": 10
 	},
 	{
@@ -17,9 +17,9 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L54591000004000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L54591000004000-00-264x264.jpg",
 		"price": 2500,
-		"category": "guitars",
+		"category": "Guitars",
 		"brand": "Gibson",		
-		"description": "Guitarra Gibson SG Classic",
+		"description": "Guitarra Gibson SG Classic. La línea classic de Gibson es un emblema de la marca por su calidad indiscutible",
 		"stock": 15
 	},
 	{
@@ -28,9 +28,9 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L69991000001000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L69991000001000-00-264x264.jpg",		
 		"price": 2700,
-		"category": "guitars",
+		"category": "Guitars",
 		"brand": "Fender",		
-		"description": "Guitarra Fender Stratocaster American Ultra",
+		"description": "Guitarra Fender Stratocaster American Ultra. Tope de gama de Fender, acabados únicos",
 		"stock": 5
 	},
 	{
@@ -39,9 +39,9 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L78119000004000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L78119000004000-00-264x264.jpg",
 		"price": 2600,
-		"category": "guitars",
+		"category": "Guitars",
 		"brand": "Fender",
-		"description": "Guitarra Fender Telecaster American Professional II",
+		"description": "Guitarra Fender Telecaster American Professional II. La Telecaster en su escencia única e irrepetible",
 		"stock": 8
 	},
 	{
@@ -50,7 +50,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L82178000001000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L82178000001000-00-264x264.jpg",
 		"price": 4900,
-		"category": "guitars",
+		"category": "Guitars",
 		"brand": "Paul Reed Smith",
 		"description": "Guitarra Paul Reed Smith Custom 24",
 		"stock": 4
@@ -61,7 +61,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/480774000000000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/480774000000000-00-264x264.jpg",		
 		"price": 2800,
-		"category": "amps",
+		"category": "Amplifiers",
 		"brand": "Marshall",		
 		"description": "Amplificador Marshall JVM Series JVM410H",
 		"stock": 9
@@ -72,7 +72,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/480505000000000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/480505000000000-00-264x264.jpg",		
 		"price": 2550,
-		"category": "amps",
+		"category": "Amplifiers",
 		"brand": "Fender",		
 		"description": "Amplificador Fender Vintage Reissue '65 Twin Reverb",
 		"stock": 4
@@ -83,7 +83,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/423618000001000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/423618000001000-00-264x264.jpg",		
 		"price": 1850,
-		"category": "amps",
+		"category": "Amplifiers",
 		"brand": "Vox",
 		"description": "Amplificador VOX Custom AC30C2 30W 2x12",
 		"stock": 2
@@ -94,7 +94,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/L97360000001000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/L97360000001000-00-264x264.jpg",		
 		"price": 3680,
-		"category": "amps",
+		"category": "Amplifiers",
 		"brand": "Mesa Boogie",		
 		"description": "Amplificador MESA-Boogie Mark VII 90W",
 		"stock": 1
@@ -105,7 +105,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/J00139000001000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/J00139000001000-00-264x264.jpg",		
 		"price": 1450,
-		"category": "amps",
+		"category": "Amplifiers",
 		"brand": "Laney",		
 		"description": "Amplificador Laney L20T-112 20W 1x12",
 		"stock": 16
@@ -116,7 +116,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/151389000000000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/151389000000000-00-264x264.jpg",		
 		"price": 120,
-		"category": "pedals",
+		"category": "Pedals",
 		"brand": "Boss",		
 		"description": "Pedal Boss OD-3 OverDrive",
 		"stock": 22
@@ -127,7 +127,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/J23118000000000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/J23118000000000-00-600x600.jpg",		
 		"price": 1350,
-		"category": "pedals",
+		"category": "Pedals",
 		"brand": "Line6",		
 		"description": "Pedalera Line6 Helix Multi-Effects",
 		"stock": 18
@@ -138,7 +138,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/H82721000000000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/H82721000000000-00-264x264.jpg",		
 		"price": 399,
-		"category": "pedals",
+		"category": "Pedals",
 		"brand": "Digitech",		
 		"description": "Pedal DigiTech Whammy V Pitch Shifting",
 		"stock": 11
@@ -149,7 +149,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/151501000000000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/151501000000000-00-600x600.jpg",		
 		"price": 199,
-		"category": "pedals",
+		"category": "Pedals",
 		"brand": "ProCo",		
 		"description": "Pedal ProCo Rat2 Distortion",
 		"stock": 24
@@ -160,7 +160,7 @@
 		"images": ["https://media.guitarcenter.com/is/image/MMGS7/153314000000000-00-600x600.jpg"],
 		"thumbnail": "https://media.guitarcenter.com/is/image/MMGS7/153314000000000-00-600x600.jpg",		
 		"price": 169,
-		"category": "pedals",
+		"category": "Pedals",
 		"brand": "Electro Harmonix",
 		"description": "Pedal Electro Harmonix Big Muff Pi Distortion/Sustainer",
 		"stock": 14

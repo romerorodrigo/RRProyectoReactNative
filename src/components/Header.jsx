@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import { colors } from '../constants/colors'
 
-const Header = ({title}) => {
+const Header = () => {
   return (
     <View style = {styles.container}>
       <Image
@@ -11,7 +11,7 @@ const Header = ({title}) => {
           source={require('../../assets/LaFusa.png')}
       />
       <Image
-          resizeMode='cover'
+          resizeMode='center'
           style = {styles.image_center}
           source={require('../../assets/LaFusaMedio.png')}
         />
@@ -28,10 +28,9 @@ export default Header
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:80,
     width: '100%',
-    height: 150,
-    backgroundColor: colors.teal900,
+    height: 90,
+    backgroundColor: colors.gray900,
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row'
@@ -45,8 +44,5 @@ const styles = StyleSheet.create({
     height: 70,
     width: 450,
     borderRadius: 8
-  },      
-  text: {
-    color: colors.teal200
   }
 })

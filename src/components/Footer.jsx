@@ -2,13 +2,13 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 import { colors } from '../constants/colors'
 
-const Footer = ({text}) => {
+const Footer = () => {
   return (
     <View style = {styles.container}>
       <Image
           resizeMode='cover'
           style = {styles.image_center}
-          source={require('../../assets/LaFusaMedio.png')}
+          source={require('../../assets/LaFusaMedioCompleta.png')}
         />
     </View>
   )
@@ -27,10 +27,7 @@ const styles = StyleSheet.create({
   },
   image_center: {
     height: 70,
-    width: 300,
+    width: '100%',
     borderRadius: 8
-  },      
-  text: {
-    color: colors.gray100
   }
 })
