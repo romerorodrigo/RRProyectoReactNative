@@ -1,20 +1,22 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import { colors } from '../constants/colors'
 import React from 'react'
 import Card from './Card'
 
-const ProductItem = ({product}) => {
+const ProductItem = ({product, setProductSelected=()=>{}, setItemIdSelected=()=>{}}) => {
   return (
     <Card style={styles.styleCard}>
+      <Pressable style={styles.pressable} onPress ={()=> setItemIdSelected(product.id)}>
         <View style={styles.textContainer}>
           <Text style={styles.title}>{product.title}</Text>
           <Text style={styles.desc}>{product.description}</Text>
         </View>
         <Image 
-            resizeMode='cover'
-            style = {styles.image}
-            source={{uri: product.images[0]}}
-          />
+          resizeMode='cover'
+          style = {styles.image}
+          source={{uri: product.images[0]}}
+        />
+      </Pressable>        
     </Card>
   )
 }
@@ -34,14 +36,15 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 130,
-    width: '50%',
+    width: '35%',
     borderRadius: 8,
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    maxHeight: 130,
   },  
   textContainer: {
     alignItems: 'flex-start',
-    width: '50%',
-    flexWrap: 'np-wrap'
+    width: '65%',
+    flexWrap: 'no-wrap'
   },
   title: {
     color: colors.gray400,
@@ -54,5 +57,13 @@ const styles = StyleSheet.create({
     color: colors.gray100,
     fontSize: 15,
     width: '90%',    
-  }
+    maxHeight: 90,
+  },
+  pressable: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingLeft: 10,
+  },
 })

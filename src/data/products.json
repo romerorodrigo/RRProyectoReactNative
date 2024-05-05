@@ -8,7 +8,7 @@
 		"price": 3200,
 		"category": "Guitars",
 		"brand": "Gibson",
-		"description": "Guitarra Gibson Les Paul Standard 60s Cherry. La línea standard de Gibson es un emblema de la marca por su calidad indiscutible",
+		"description": "Guitarra Gibson Les Paul Standard 60s Cherry.",
 		"stock": 10
 	},
 	{
@@ -19,7 +19,7 @@
 		"price": 2500,
 		"category": "Guitars",
 		"brand": "Gibson",		
-		"description": "Guitarra Gibson SG Classic. La línea classic de Gibson es un emblema de la marca por su calidad indiscutible",
+		"description": "Guitarra Gibson SG Classic Ebony Black.",
 		"stock": 15
 	},
 	{
@@ -30,7 +30,7 @@
 		"price": 2700,
 		"category": "Guitars",
 		"brand": "Fender",		
-		"description": "Guitarra Fender Stratocaster American Ultra. Tope de gama de Fender, acabados únicos",
+		"description": "Guitarra Fender Stratocaster American Ultra.",
 		"stock": 5
 	},
 	{
@@ -41,7 +41,7 @@
 		"price": 2600,
 		"category": "Guitars",
 		"brand": "Fender",
-		"description": "Guitarra Fender Telecaster American Professional II. La Telecaster en su escencia única e irrepetible",
+		"description": "Guitarra Fender Telecaster American Professional II.",
 		"stock": 8
 	},
 	{
@@ -52,7 +52,7 @@
 		"price": 4900,
 		"category": "Guitars",
 		"brand": "Paul Reed Smith",
-		"description": "Guitarra Paul Reed Smith Custom 24",
+		"description": "Guitarra Paul Reed Smith Custom 24.",
 		"stock": 4
 	},
 	{

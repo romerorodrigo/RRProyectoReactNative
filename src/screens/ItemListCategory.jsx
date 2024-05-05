@@ -5,7 +5,9 @@ import ProductItem from "../components/ProductItem"
 import Search from "../components/Search"
 import { useState, useEffect } from "react"
 
-const ItemListCategory = ({categorySelected = "", setCategorySelected = ()=> {}}) => {
+const ItemListCategory = ({categorySelected = "", 
+                          setCategorySelected = ()=> {},
+                          setItemIdSelected = () => {}}) => {
   const [keyWord, setKeyword] = useState("")
   const [productsFiltered, setProductsFiltered] = useState([])
   const [error, setError] = useState("")
@@ -29,7 +31,7 @@ const ItemListCategory = ({categorySelected = "", setCategorySelected = ()=> {}}
       <Search error = {error} onSearch={setKeyword} goBack={()=> setCategorySelected("")}/>
       <FlatList
         data = {productsFiltered}
-        renderItem = {({item})=> <ProductItem product={item}/>}
+        renderItem = {({item})=> <ProductItem product={item} setItemIdSelected={setItemIdSelected}/>}
         keyExtractor = {(producto) => producto.id}
       />
     </View>
