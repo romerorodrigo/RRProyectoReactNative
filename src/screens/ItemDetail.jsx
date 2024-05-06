@@ -4,22 +4,21 @@ import { FontAwesome5 } from "@expo/vector-icons"
 import { colors } from "../constants/colors"
 import allProducts from "../data/products.json"
   
-  const ItemDetail = ({ idSelected, setProductSelected }) => {
+  const ItemDetail = ({route, navigation }) => {
     const [product, setProduct] = useState(null)
     const [orientation, setOrientation] = useState("portrait")
     const { width, height } = useWindowDimensions()
-  
+    const {productId} = route.params 
+
     useEffect(() => {
-      if (width > height) 
-        setOrientation("landscape")
-      else 
-        setOrientation("portrait")
+      if (width > height) setOrientation("landscape")
+      else setOrientation("portrait")
     }, [width, height])
   
     useEffect(() => {
-      const productSelected = allProducts.find((product) => product.id === idSelected)
+      const productSelected = allProducts.find((product) => product.id === productId)
       setProduct(productSelected)
-    }, [idSelected])
+    }, [productId])
   
     return (
         <View style={orientation === "portrait" ? styles.generalView : styles.generalViewLandscape}>
@@ -31,7 +30,7 @@ import allProducts from "../data/products.json"
                 <Text style={styles.descStyle}>{product.description}</Text>
                 <Text style={styles.price}>${product.price}</Text>
                 <View style={orientation === "portrait" ? styles.buttonContainer : styles.buttonContainerLandscape}>
-                    <Pressable onPress={() => setProductSelected("")}><FontAwesome5 name="backspace" size={50} color="gray" /></Pressable>
+                    <Pressable onPress={() => navigation.goBack()}><FontAwesome5 name="backspace" size={50} color="gray" /></Pressable>
                     <Pressable><FontAwesome5 name="cart-plus" size={50} color="gray" /></Pressable>
                 </View>
             </View>
@@ -45,12 +44,13 @@ import allProducts from "../data/products.json"
   
   const styles = StyleSheet.create({
     generalView: {
-        marginTop: 10,
+        backgroundColor:colors.allBlack,
         flex: 1,
         flexDirection: 'row',
         justifyContent: "center",
     },
     generalViewLandscape: {
+        backgroundColor:colors.allBlack,
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
@@ -118,7 +118,7 @@ import allProducts from "../data/products.json"
     },
     buttonContainer: {
         textAlign: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-end',
         width: '100%',
         height: 70,
         flexDirection: 'row',
@@ -126,6 +126,7 @@ import allProducts from "../data/products.json"
         paddingHorizontal: 10,
     },
     buttonContainerLandscape: {
+        alignItems: 'flex-end',
         width: '100%',
         height: 60,
         flexDirection: 'row',

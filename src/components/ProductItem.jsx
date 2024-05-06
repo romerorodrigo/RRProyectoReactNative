@@ -3,10 +3,10 @@ import { colors } from '../constants/colors'
 import React from 'react'
 import Card from './Card'
 
-const ProductItem = ({product, setProductSelected=()=>{}, setItemIdSelected=()=>{}}) => {
+const ProductItem = ({product, navigation}) => {
   return (
     <Card style={styles.styleCard}>
-      <Pressable style={styles.pressable} onPress ={()=> setItemIdSelected(product.id)}>
+      <Pressable style={styles.pressable} onPress ={()=> navigation.navigate('ItemDetail', {productId: product.id})}>
         <View style={styles.textContainer}>
           <Text style={styles.title}>{product.title}</Text>
           <Text style={styles.desc}>{product.description}</Text>

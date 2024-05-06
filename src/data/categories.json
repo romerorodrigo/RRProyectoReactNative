@@ -1,5 +1,5 @@
 [
-    {"id": "1", "category":"Guitars","image":"https://i.imgur.com/aB7Z4WE.png"},
+    {"id": "1","category":"Guitars","image":"https://i.imgur.com/aB7Z4WE.png"},
     {"id": "2","category":"Amplifiers","image":"https://i.imgur.com/H8ABGiY.png"},
     {"id": "3","category":"Pedals","image":"https://i.imgur.com/kLjERv5.png"},
     {"id": "4","category":"Basses","image":"https://i.imgur.com/ovzq2mJ.png"},

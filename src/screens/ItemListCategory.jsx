@@ -5,12 +5,13 @@ import ProductItem from "../components/ProductItem"
 import Search from "../components/Search"
 import { useState, useEffect } from "react"
 
-const ItemListCategory = ({categorySelected = "", 
-                          setCategorySelected = ()=> {},
-                          setItemIdSelected = () => {}}) => {
+const ItemListCategory = ({setCategorySelected = ()=> {},
+                          navigation,
+                          route}) => {
   const [keyWord, setKeyword] = useState("")
   const [productsFiltered, setProductsFiltered] = useState([])
   const [error, setError] = useState("")
+  const {category} = route.params
 
   useEffect(()=> {
     regex= /\d/
@@ -19,19 +20,19 @@ const ItemListCategory = ({categorySelected = "",
       setError("Don't use digits")
       return
     }
-    const productsPrefiltered = products.filter(product => product.category === categorySelected.category)
+    const productsPrefiltered = products.filter(product => product.category === category.category)
     const productsFilter = productsPrefiltered.filter(product => product.title.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase()))
 
     setProductsFiltered(productsFilter)
     setError("")
-  }, [keyWord, categorySelected])
+  }, [keyWord, category])
 
   return (
     <View style={styles.flatListContainer}>
-      <Search error = {error} onSearch={setKeyword} goBack={()=> setCategorySelected("")}/>
+      <Search error = {error} onSearch={setKeyword} goBack={()=> navigation.goBack()}/>
       <FlatList
         data = {productsFiltered}
-        renderItem = {({item})=> <ProductItem product={item} setItemIdSelected={setItemIdSelected}/>}
+        renderItem = {({item})=> <ProductItem product={item} navigation={navigation}/>}
         keyExtractor = {(producto) => producto.id}
       />
     </View>
