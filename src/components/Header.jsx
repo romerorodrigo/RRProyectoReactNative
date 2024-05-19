@@ -1,24 +1,17 @@
-import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { colors } from '../constants/colors'
+import { useSelector } from 'react-redux'
 
-const Header = () => {
+const Header = ({route}) => {
+  const categorySelected = useSelector(state => state.shop.value.categorySelected)
+  console.log(route.name)
+  console.log(categorySelected)
   return (
     <View style = {styles.container}>
       <Image
-          resizeMode='cover'
-          style = {styles.image}
-          source={require('../../assets/LaFusa.png')}
-      />
-      <Image
           resizeMode='center'
           style = {styles.image_center}
-          source={require('../../assets/LaFusaMedio.png')}
-        />
-      <Image
-          resizeMode='cover'
-          style = {styles.image}
-          source={require('../../assets/LafusaTexto.png')}
+          source={categorySelected ? { uri:categorySelected['imageHeader']} : require('../../assets/LaFusaMedio.png')}
         />
     </View>
   )
@@ -31,7 +24,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 90,
     backgroundColor: colors.gray900,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row'
   },

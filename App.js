@@ -1,12 +1,16 @@
 import { Platform, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 import { colors } from './src/constants/colors';
 import Navigator from './src/navigation/Navigator';
+import { Provider } from "react-redux"
+import store from "./src/store"
 
 export default function App() {
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.container}>
-        <Navigator/>
+        <Provider store={store}>
+          <Navigator/>
+        </Provider>
       </SafeAreaView>      
     </View>
   );

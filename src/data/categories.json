@@ -1,8 +1,8 @@
 [
-    {"id": "1","category":"Guitars","image":"https://i.imgur.com/aB7Z4WE.png"},
-    {"id": "2","category":"Amplifiers","image":"https://i.imgur.com/H8ABGiY.png"},
-    {"id": "3","category":"Pedals","image":"https://i.imgur.com/kLjERv5.png"},
-    {"id": "4","category":"Basses","image":"https://i.imgur.com/ovzq2mJ.png"},
-    {"id": "5","category":"Drums","image":"https://i.imgur.com/6hA1LWl.png"},    
-    {"id": "6","category":"Others","image":"https://i.imgur.com/gpivMsc.png"}
+    {"id": "1","category":"Guitars","image":"https://i.imgur.com/aB7Z4WE.png","imageHeader":"https://i.imgur.com/aB7Z4WE.png"},
+    {"id": "2","category":"Amplifiers","image":"https://i.imgur.com/H8ABGiY.png","imageHeader":"https://i.imgur.com/aB7Z4WE.png"},
+    {"id": "3","category":"Pedals","image":"https://i.imgur.com/kLjERv5.png","imageHeader":"https://i.imgur.com/aB7Z4WE.png"},
+    {"id": "4","category":"Basses","image":"https://i.imgur.com/ovzq2mJ.png","imageHeader":"https://i.imgur.com/aB7Z4WE.png"},
+    {"id": "5","category":"Drums","image":"https://i.imgur.com/6hA1LWl.png","imageHeader":"https://i.imgur.com/aB7Z4WE.png"},    
+    {"id": "6","category":"Others","image":"https://i.imgur.com/gpivMsc.png","imageHeader":"https://i.imgur.com/aB7Z4WE.png"}
 ]
