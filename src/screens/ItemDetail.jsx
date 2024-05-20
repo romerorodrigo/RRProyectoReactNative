@@ -2,23 +2,24 @@ import {Image,Pressable,StyleSheet,Text,View,useWindowDimensions} from "react-na
 import React, { useEffect, useState } from "react"
 import { FontAwesome5 } from "@expo/vector-icons"
 import { colors } from "../constants/colors"
-import allProducts from "../data/products.json"
+import { useDispatch } from "react-redux"
+import { useGetProductByIdQuery } from "../services/shopService"
+import { addCartItem, removeCartItem } from "../features/cartSlice"
   
   const ItemDetail = ({route, navigation }) => {
-    const [product, setProduct] = useState(null)
+
+    const dispatch = useDispatch()
     const [orientation, setOrientation] = useState("portrait")
     const { width, height } = useWindowDimensions()
-    const {productId} = route.params 
+    const {productId: idSelected} = route.params 
+    const {data: product, error, isLoading} = useGetProductByIdQuery(idSelected)
+    const handleAddCart = () => {dispatch(addCartItem({...product, quantity: 1}))}
+    const handleRemoveCart = () => {dispatch(removeCartItem({...product, quantity: 1}))}
 
     useEffect(() => {
       if (width > height) setOrientation("landscape")
       else setOrientation("portrait")
     }, [width, height])
-  
-    useEffect(() => {
-      const productSelected = allProducts.find((product) => product.id === productId)
-      setProduct(productSelected)
-    }, [productId])
   
     return (
         <View style={orientation === "portrait" ? styles.generalView : styles.generalViewLandscape}>
@@ -31,7 +32,8 @@ import allProducts from "../data/products.json"
                 <Text style={styles.price}>${product.price}</Text>
                 <View style={orientation === "portrait" ? styles.buttonContainer : styles.buttonContainerLandscape}>
                     <Pressable onPress={() => navigation.goBack()}><FontAwesome5 name="backspace" size={50} color="gray" /></Pressable>
-                    <Pressable><FontAwesome5 name="cart-plus" size={50} color="gray" /></Pressable>
+                    <Pressable onPress={handleAddCart}><FontAwesome5 name="cart-plus" size={50} color="gray"/></Pressable>
+                    <Pressable onPress={handleRemoveCart}><FontAwesome5 name="cart-arrow-down" size={50} color="gray"/></Pressable>
                 </View>
             </View>
         </View>

@@ -1,12 +1,14 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CartData from '../data/cart.json'
 import CartItem from '../components/CartItem';
 import { colors } from '../constants/colors';
 import { FontAwesome5 } from "@expo/vector-icons"
+import { useSelector } from 'react-redux';
 
 const Cart = () => {
-    const total = CartData.reduce((acumulador, currentItem) => acumulador += currentItem.price * currentItem.quantity, 0)
+    const {items: CartData, total} = useSelector(state => state.cart.value)
+
+    //const [triggerPostOrder, result] = usePostOrderMutation()
     
     return (
     <View style={styles.container}>

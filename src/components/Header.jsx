@@ -4,8 +4,6 @@ import { useSelector } from 'react-redux'
 
 const Header = ({route}) => {
   const categorySelected = useSelector(state => state.shop.value.categorySelected)
-  console.log(route.name)
-  console.log(categorySelected)
   return (
     <View style = {styles.container}>
       <Image
