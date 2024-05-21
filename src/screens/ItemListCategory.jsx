@@ -15,12 +15,6 @@ const ItemListCategory = ({setCategorySelected = ()=> {},
   const {data: prodFetch, error: errFetch, isLoading} = useGetProductsByCategoryQuery(categorySelected)
 
   useEffect(()=> {
-    regex= /\d/
-    const hasDigits = (regex.test(keyWord))
-    if (hasDigits) {
-      setError("Don't use digits")
-      return
-    }
     if (!isLoading) {
       const productsFilter = prodFetch.filter((product) =>
         product.title.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase())

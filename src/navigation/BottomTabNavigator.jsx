@@ -2,10 +2,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { StyleSheet, View } from "react-native"
 import { colors } from "../constants/colors"
 import { FontAwesome5 } from "@expo/vector-icons"
-import HomeStackNavigator from "./HomeStackNavigator"
+import HomeStackNavigator from "./NavigatorHomeStack"
 import Header from "../components/Header"
-import CartStack from "./CartStackNavigator"
-import OrderStack from "./OrderStackNavigator"
+import CartStack from "./NavigatorCartStack"
+import OrderStack from "./NavigatorOrderStack"
 
 const Tab = createBottomTabNavigator()
 

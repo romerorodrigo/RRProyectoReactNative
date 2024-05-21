@@ -1,10 +1,14 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native"
 import { FontAwesome5 } from "@expo/vector-icons"
 import { colors } from "../constants/colors"
 
 const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
   const [keyword, setKeyword] = useState("")
+
+  useEffect(() => {
+    onSearch(keyword)
+  }, [keyword])
 
   return (
     <View style={styles.container}>
@@ -14,9 +18,6 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
         value={keyword}
         onChangeText={setKeyword}
       />
-      <Pressable onPress={() => onSearch(keyword)}>
-        <FontAwesome5 name="search" size={35} color="gray" />
-      </Pressable>
       <Pressable onPress={() => setKeyword("")}>
         <FontAwesome5 name="eraser" size={35} color="gray" />
       </Pressable>
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     paddingBottom:10,
   },
   input: {
-    width: '60%',
+    width: '80%',
     padding: 8,
     fontSize: 20,
     backgroundColor: colors.gray100,
