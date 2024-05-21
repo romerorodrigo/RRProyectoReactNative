@@ -4,12 +4,14 @@ import CartItem from '../components/CartItem';
 import { colors } from '../constants/colors';
 import { FontAwesome5 } from "@expo/vector-icons"
 import { useSelector } from 'react-redux';
+import { usePostOrderMutation } from '../services/shopService';
 
 const Cart = () => {
     const {items: CartData, total} = useSelector(state => state.cart.value)
-
-    //const [triggerPostOrder, result] = usePostOrderMutation()
-    
+    const [triggerPostOrder, result] = usePostOrderMutation()
+    const onConfirmOrder = () => {
+        triggerPostOrder({items: CartData, user: 'Admin', total})
+    }
     return (
     <View style={styles.container}>
         <FlatList
@@ -18,8 +20,8 @@ const Cart = () => {
             renderItem={({item})=> {return (<CartItem cartItem={item}/>)}}
         />
         <View style={styles.totalContainer}>
-            <Pressable>
-                <View><FontAwesome5 name="check-circle" size={50} color={colors.gray200}/></View>
+            <Pressable onPress={onConfirmOrder}>
+                <View><FontAwesome5 name="check-circle" size={50} color={"green"}/></View>
             </Pressable>
             <Text style={styles.textTotal}>Total: ${total}</Text>
         </View>

@@ -4,7 +4,7 @@ import { FontAwesome5 } from "@expo/vector-icons"
 import { colors } from "../constants/colors"
 import { useDispatch } from "react-redux"
 import { useGetProductByIdQuery } from "../services/shopService"
-import { addCartItem, removeCartItem } from "../features/cartSlice"
+import { addCartItem } from "../features/cartSlice"
   
   const ItemDetail = ({route, navigation }) => {
 
@@ -14,7 +14,6 @@ import { addCartItem, removeCartItem } from "../features/cartSlice"
     const {productId: idSelected} = route.params 
     const {data: product, error, isLoading} = useGetProductByIdQuery(idSelected)
     const handleAddCart = () => {dispatch(addCartItem({...product, quantity: 1}))}
-    const handleRemoveCart = () => {dispatch(removeCartItem({...product, quantity: 1}))}
 
     useEffect(() => {
       if (width > height) setOrientation("landscape")
@@ -33,7 +32,6 @@ import { addCartItem, removeCartItem } from "../features/cartSlice"
                 <View style={orientation === "portrait" ? styles.buttonContainer : styles.buttonContainerLandscape}>
                     <Pressable onPress={() => navigation.goBack()}><FontAwesome5 name="backspace" size={50} color="gray" /></Pressable>
                     <Pressable onPress={handleAddCart}><FontAwesome5 name="cart-plus" size={50} color="gray"/></Pressable>
-                    <Pressable onPress={handleRemoveCart}><FontAwesome5 name="cart-arrow-down" size={50} color="gray"/></Pressable>
                 </View>
             </View>
         </View>
