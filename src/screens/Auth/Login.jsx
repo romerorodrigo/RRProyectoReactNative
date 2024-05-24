@@ -17,14 +17,19 @@ const Login = ({ navigation }) => {
     const [isPressedConfirm, setIsPressedConfirm] = useState(false);
     
     const dispatch = useDispatch()
-    const onSubmit = () => {
+    const onSubmit = async () => {
         try {
             setErrorMail("")
             setErrorPassword("")
             loginSchema.validateSync({email, password})
-            console.log(validation)
-            {triggerSignIn({ email, password })}
-            navigation.goBack()
+
+            try {
+                const result = await triggerSignIn({ email, password }).unwrap()
+                dispatch(setUser({ email: result.email, idToken: result.idToken }))
+                navigation.goBack()
+            } catch (err) {
+                setErrorMail("User / Pass does not exist")
+            }
         } catch (err) {
             console.log(err.path)
             console.log(err.message)
