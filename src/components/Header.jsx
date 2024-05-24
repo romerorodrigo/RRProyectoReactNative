@@ -1,17 +1,23 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, View, Image } from 'react-native'
 import { colors } from '../constants/colors'
 import { useSelector } from 'react-redux'
 
-const Header = ({route}) => {
+const Header = (route) => {
   const categorySelected = useSelector(state => state.shop.value.categorySelected)
+  console.log(route)
   return (
     <View style = {styles.container}>
       <Image
           resizeMode='center'
-          style = {styles.image_center}
-          source={categorySelected ? { uri:categorySelected['imageHeader']} : require('../../assets/LaFusaMedio.png')}
+          style = {styles.main_image}
+          source= {require('../../assets/LaFusaMedio.png')}
         />
-    </View>
+      <Image
+          resizeMode='cover'
+          style = {styles.image}
+          source={categorySelected ? { uri:categorySelected['imageHeader']} : require('../../assets/LafusaTexto.png')}
+        />
+      </View>
   )
 }
 
@@ -21,8 +27,10 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: 90,
+    paddingLeft: 15,
+    paddingRight: 15,
     backgroundColor: colors.gray900,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row'
   },
@@ -31,7 +39,7 @@ const styles = StyleSheet.create({
     width: '20%',
     borderRadius: 8
   },    
-  image_center: {
+  main_image: {
     height: 70,
     width: '50%',
     borderRadius: 8

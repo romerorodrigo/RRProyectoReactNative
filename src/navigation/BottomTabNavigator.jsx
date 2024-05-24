@@ -22,17 +22,17 @@ const BottomTabNavigator = () => {
     >
         <Tab.Screen name="Shop" component={HomeStackNavigator} options={{tabBarIcon: ({ focused }) => {
             return (
-                <View><FontAwesome5 name="store" size={30} color={focused ? "black" : colors.gray200}/></View>
+                <View><FontAwesome5 name="store" size={30} color={focused ? colors.gray200 : colors.gray700}/></View>
             )
         },}}/>
         <Tab.Screen name="Cart" component={CartStack} options={{tabBarIcon: ({ focused }) => {
             return (
-                <View><FontAwesome5 name="shopping-cart" size={30} color={focused ? "black" : colors.gray200}/></View>
+                <View><FontAwesome5 name="shopping-cart" size={30} color={focused ? colors.gray200 : colors.gray700}/></View>
             )
         },}}/>
         <Tab.Screen name="Order" component={OrderStack} options={{tabBarIcon: ({ focused }) => {
             return (
-                <View><FontAwesome5 name="file-invoice" size={30} color={focused ? "black" : colors.gray200}/></View>
+                <View><FontAwesome5 name="file-invoice" size={30} color={focused ? colors.gray200 : colors.gray700}/></View>
             )
         },}}/>        
     </Tab.Navigator>
@@ -43,10 +43,9 @@ export default BottomTabNavigator
 
 const styles = StyleSheet.create({
     tabBar: {
-        backgroundColor: colors.gray400,
+        backgroundColor: colors.allBlack,
         shadowColor: "black",
         elevation: 4,
-        borderRadius: 15,
         height: 60,
     },
 })

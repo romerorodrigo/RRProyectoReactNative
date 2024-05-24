@@ -11,6 +11,8 @@ import { addCartItem } from "../features/cartSlice"
     const dispatch = useDispatch()
     const [orientation, setOrientation] = useState("portrait")
     const { width, height } = useWindowDimensions()
+    const [isPressedCart, setIsPressedCart] = useState(false);
+    const [isPressedBack, setIsPressedBack] = useState(false);
     const {productId: idSelected} = route.params 
     const {data: product, error, isLoading} = useGetProductByIdQuery(idSelected)
     const handleAddCart = () => {dispatch(addCartItem({...product, quantity: 1}))}
@@ -30,8 +32,12 @@ import { addCartItem } from "../features/cartSlice"
                 <Text style={styles.descStyle}>{product.description}</Text>
                 <Text style={styles.price}>${product.price}</Text>
                 <View style={orientation === "portrait" ? styles.buttonContainer : styles.buttonContainerLandscape}>
-                    <Pressable onPress={() => navigation.goBack()}><FontAwesome5 name="backspace" size={50} color="gray" /></Pressable>
-                    <Pressable onPress={handleAddCart}><FontAwesome5 name="cart-plus" size={50} color="gray"/></Pressable>
+                    <Pressable onPress={() => navigation.goBack()} onPressIn={() => setIsPressedBack(true)} onPressOut={() => setIsPressedBack(false)}>
+                        <FontAwesome5 name="backspace" size={40} color={isPressedBack ? colors.gray800 : colors.gray200} />
+                    </Pressable>
+                    <Pressable onPress={handleAddCart} onPressIn={() => setIsPressedCart(true)} onPressOut={() => setIsPressedCart(false)}>
+                        <FontAwesome5 name="cart-plus" size={40} color={isPressedCart ? colors.gray800 : colors.gray200}/>
+                    </Pressable>
                 </View>
             </View>
         </View>
@@ -44,13 +50,14 @@ import { addCartItem } from "../features/cartSlice"
   
   const styles = StyleSheet.create({
     generalView: {
-        backgroundColor:colors.allBlack,
+        width: '100%',
+        backgroundColor:colors.gray600,
         flex: 1,
         flexDirection: 'row',
         justifyContent: "center",
     },
     generalViewLandscape: {
-        backgroundColor:colors.allBlack,
+        backgroundColor:colors.gray600,
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
@@ -58,6 +65,7 @@ import { addCartItem } from "../features/cartSlice"
         
     },    
     mainContainer: {
+        width: '90%',
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
@@ -74,20 +82,26 @@ import { addCartItem } from "../features/cartSlice"
         borderRadius: 20,
         padding: 10,
         borderWidth: 3,      
-        resizeMode: 'contain'  
+        resizeMode: 'contain',  
+        backgroundColor:colors.allBlack,
+        borderColor: colors.gray200
     },
     imageLandscape: {
         width: '30%',
         height: 250,
         resizeMode: 'contain', 
+        backgroundColor:colors.allBlack,
+        borderColor: colors.gray200
     },
     textContainer: {
-        marginTop: 20,
-        flexDirection: "column",
         width: '100%',
+        marginTop: 20,
         borderRadius: 10,
         borderWidth: 3,
-        borderColor: colors.gray500
+        backgroundColor:colors.gray900,        
+        borderColor: colors.gray200,
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
       textContainerLandscape: {
         width: '70%',
@@ -98,20 +112,22 @@ import { addCartItem } from "../features/cartSlice"
         fontWeight: 'bold',
         fontSize: 25,
         marginLeft: 10,
-        textAlign: 'left'
+        textAlign: 'left',
+        flexWrap: 'wrap'
     },
     descStyle: {
         color: colors.gray100,
         fontSize: 18,
         marginTop: 10,
         marginLeft:10,
-        textAlign: 'left'
+        textAlign: 'left',
+        flexWrap: 'wrap'
     
     },
     price: {
+        color: colors.gray500,
         textAlign: 'right',
         width: '100%',
-        color: colors.gray500,
         fontSize: 30,
         fontWeight: 'bold',
         marginTop: 10,

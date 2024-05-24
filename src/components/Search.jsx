@@ -5,6 +5,8 @@ import { colors } from "../constants/colors"
 
 const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
   const [keyword, setKeyword] = useState("")
+  const [isPressedErase, setIsPressedErase] = useState(false);
+  const [isPressedBack, setIsPressedBack] = useState(false);
 
   useEffect(() => {
     onSearch(keyword)
@@ -18,11 +20,11 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
         value={keyword}
         onChangeText={setKeyword}
       />
-      <Pressable onPress={() => setKeyword("")}>
-        <FontAwesome5 name="eraser" size={35} color="gray" />
+      <Pressable onPress={() => setKeyword("")} onPressIn={() => setIsPressedErase(true)} onPressOut={() => setIsPressedErase(false)}>
+        <FontAwesome5 name="eraser" size={35} color={isPressedErase ? colors.gray800 : colors.gray200} />
       </Pressable>
-      <Pressable onPress={goBack}>
-        <FontAwesome5 name="backspace" size={35} color="gray" />
+      <Pressable onPress={goBack} onPressIn={() => setIsPressedBack(true)} onPressOut={() => setIsPressedBack(false)}>
+        <FontAwesome5 name="backspace" size={35} color={isPressedBack ? colors.gray800 : colors.gray200} />
       </Pressable>
       {error ? <Text>{error}</Text> : null}
     </View>
