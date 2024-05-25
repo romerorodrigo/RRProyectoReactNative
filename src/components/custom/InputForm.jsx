@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     error: {
-        paddintTop: 2,
+        paddingTop: 2,
         fontSize: 16,
         color: 'red',
         fontStyle: 'italic',

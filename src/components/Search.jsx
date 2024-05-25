@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     paddingBottom:10,
   },
   input: {
-    width: '80%',
+    width: '70%',
     padding: 8,
     fontSize: 20,
     backgroundColor: colors.gray100,

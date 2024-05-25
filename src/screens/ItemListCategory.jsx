@@ -13,7 +13,7 @@ const ItemListCategory = ({setCategorySelected = ()=> {},
   const [error, setError] = useState("")
   const {category:categorySelected} = route.params
   const {data: prodFetch, error: errFetch, isLoading} = useGetProductsByCategoryQuery(categorySelected)
-
+  
   useEffect(()=> {
     if (!isLoading) {
       const productsFilter = prodFetch.filter((product) =>

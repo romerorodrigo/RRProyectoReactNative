@@ -17,7 +17,7 @@ const OrderItem = ({ order }) => {
                 </Text>
                 <Text style={styles.text2}>${total}</Text>
             </View>
-            <Feather name="search" size={30} color="black" />
+            <Feather name="search" size={30} color={colors.gray200} />
         </View>
     );
 };
@@ -27,11 +27,12 @@ export default OrderItem;
 const styles = StyleSheet.create({
     card: {
         height: 100,
-        backgroundColor: colors.platinum,
+        backgroundColor: colors.allBlack,
         padding: 10,
         margin: 10,
         borderWidth: 2,
         borderRadius: 10,
+        borderColor: colors.gray200,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -43,11 +44,20 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     text: {
-        fontSize: 17,
-        color: "black",
+        fontWeight: "bold",
+        fontSize: 20,
+        color: colors.gray200,
     },
     text2: {
-        fontSize: 19,
-        color: "gray",
+        fontStyle: "italic",
+        fontSize: 15,
+        color: colors.gray200,
     },
+    image: {
+        height: 30,
+        width: '35%',
+        borderRadius: 8,
+        alignItems: 'flex-end',
+        maxHeight: 130,
+      },  
 });

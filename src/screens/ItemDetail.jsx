@@ -79,7 +79,7 @@ import { addCartItem } from "../features/cartSlice"
     image: {
         width: '100%',
         height: '60%',
-        borderRadius: 20,
+        borderRadius: 10,
         padding: 10,
         borderWidth: 3,      
         resizeMode: 'contain',  
@@ -88,7 +88,10 @@ import { addCartItem } from "../features/cartSlice"
     },
     imageLandscape: {
         width: '30%',
-        height: 250,
+        height: '100%',
+        borderRadius: 10,
+        padding: 10,
+        borderWidth: 3,      
         resizeMode: 'contain', 
         backgroundColor:colors.allBlack,
         borderColor: colors.gray200
@@ -106,6 +109,12 @@ import { addCartItem } from "../features/cartSlice"
       textContainerLandscape: {
         width: '70%',
         flexDirection: 'column',
+        borderRadius: 10,
+        borderWidth: 3,
+        backgroundColor:colors.gray900,        
+        borderColor: colors.gray200,
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
     },
     titleStyle: {
         color: colors.gray500,

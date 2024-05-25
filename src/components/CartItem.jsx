@@ -4,6 +4,7 @@ import { removeCartItem } from "../features/cartSlice"
 import { colors } from "../constants/colors";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useDispatch } from "react-redux";
+import CustomButton from "./custom/customButton";
 
 const CartItem = ({ cartItem }) => {
 
@@ -17,7 +18,11 @@ const CartItem = ({ cartItem }) => {
                 <Text style={styles.text2}>{cartItem.brand}</Text>
                 <Text style={styles.text2}>${cartItem.price}</Text>
             </View>
-            <Pressable onPress={handleRemoveCart}><FontAwesome5 name="trash" size={30} color="black"/></Pressable>
+            <CustomButton
+                name={"trash"}
+                size={25}
+                onConfirm={handleRemoveCart}
+            />
         </View>
     );
 };
@@ -27,11 +32,12 @@ export default CartItem;
 const styles = StyleSheet.create({
     card: {
         height: 100,
-        backgroundColor: colors.gray200,
+        backgroundColor: colors.allBlack,
         padding: 10,
         margin: 10,
         borderWidth: 2,
         borderRadius: 10,
+        borderColor: colors.gray200,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -45,12 +51,12 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: "bold",
         fontSize: 20,
-        color: colors.allBlack,
+        color: colors.gray200,
     },
     text2: {
         fontStyle: "italic",
         fontSize: 15,
-        color: colors.allBlack,
+        color: colors.gray200,
     },
     image: {
         height: 30,

@@ -5,8 +5,8 @@ import { colors } from "../../constants/colors";
 import { useSignUpMutation } from "../../services/serviceAuth";
 import { setUser } from "../../features/userSlice";
 import { signupSchema } from "../../validations/authSchema";
-import { FontAwesome5 } from "@expo/vector-icons"
 import InputForm from "../../components/custom/InputForm";
+import CustomButton from "../../components/custom/customButton";
 
 const Signup = ({ navigation }) => {
     const [email, setEmail] = useState("");
@@ -18,7 +18,6 @@ const Signup = ({ navigation }) => {
     const [confirmPassword, setconfirmPassword] = useState("");
     const [errorConfirmPassword, setErrorConfirmPassword] = useState("");
     
-    const [isPressedConfirm, setIsPressedConfirm] = useState(false);
     const dispatch = useDispatch()
     const [triggerSignUp, result] = useSignUpMutation()
 
@@ -75,9 +74,11 @@ const Signup = ({ navigation }) => {
                     error={errorConfirmPassword}
                     isSecure={true}
                 />
-                <Pressable onPress={onSubmit} onPressIn={() => setIsPressedConfirm(true)} onPressOut={() => setIsPressedConfirm(false)}>
-                    <View><FontAwesome5 name="check-circle" size={40} color={isPressedConfirm ? colors.gray800 : colors.gray100}/></View>
-                </Pressable>                
+                <CustomButton
+                    name={"check-circle"}
+                    size={40}
+                    onConfirm={onSubmit}
+                />
                 <Text style={styles.sub}>Already have an account?</Text>
                 <Pressable onPress={() => navigation.navigate("Login")}>
                     <Text style={styles.subLink}>Login</Text>
@@ -105,23 +106,22 @@ const styles = StyleSheet.create({
         backgroundColor: colors.gray800,
         gap: 15,
         paddingVertical: 20,
-        borderRadius: 10,
-        backgroundColor: colors.gray500        
+        borderRadius: 10,   
     },
     title: {
         fontSize: 22,
-        colors: colors.allBlack,
-        fontWeight: 'bold'
+        color: colors.allBlack,
+        fontWeight: "bold"
     },
     sub: {
         fontSize: 14,
         color: colors.allBlack,
-        fontWeight: 'bold'
+        fontWeight: "bold"
 
     },
     subLink: {
         fontSize: 14,
         color: "blue",
-        fontWeight: 'bold'
+        fontWeight: "bold"
     },
 })

@@ -6,7 +6,7 @@ import { StyleSheet } from "react-native";
 
 const Stack = createNativeStackNavigator()
 
-const HomeStackNavigator = () => {
+const HomeStack = () => {
     return(
         <Stack.Navigator initialRouteName='Home'screenOptions = {{headerShown: false,}}>
             <Stack.Screen component={Home} name='Home' />
@@ -16,6 +16,6 @@ const HomeStackNavigator = () => {
     )
 }
 
-export default HomeStackNavigator
+export default HomeStack
 
 const styles = StyleSheet.create({})

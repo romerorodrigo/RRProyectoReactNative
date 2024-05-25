@@ -4,9 +4,9 @@ import { colors } from "../../constants/colors"
 import { useSignInMutation } from "../../services/serviceAuth"
 import { setUser } from "../../features/userSlice"
 import { useDispatch } from "react-redux"
-import { FontAwesome5 } from "@expo/vector-icons"
 import { loginSchema } from "../../validations/authSchema";
 import InputForm from "../../components/custom/InputForm"
+import CustomButton from "../../components/custom/customButton"
 
 const Login = ({ navigation }) => {
     const [triggerSignIn, result] = useSignInMutation()
@@ -14,8 +14,7 @@ const Login = ({ navigation }) => {
     const [errorMail, setErrorMail] = useState("")
     const [password, setPassword] = useState()
     const [errorPassword, setErrorPassword] = useState("")
-    const [isPressedConfirm, setIsPressedConfirm] = useState(false);
-    
+
     const dispatch = useDispatch()
     const onSubmit = async () => {
         try {
@@ -25,15 +24,11 @@ const Login = ({ navigation }) => {
 
             try {
                 const result = await triggerSignIn({ email, password }).unwrap()
-                dispatch(setUser({ email: result.email, idToken: result.idToken }))
-                navigation.goBack()
             } catch (err) {
                 setErrorMail("User / Pass does not exist")
             }
         } catch (err) {
-            console.log(err.path)
-            console.log(err.message)
-            switch (err.path) {
+             switch (err.path) {
                 case "email":
                     setErrorMail(err.message)
                     break;
@@ -48,10 +43,7 @@ const Login = ({ navigation }) => {
 
     useEffect(() => {
         if (result.isSuccess) {
-            dispatch(
-                setUser({email: result.data.email, idToken: result.data.idToken,}),
-                navigation.goBack()
-            )
+            dispatch(setUser({email: result.data.email, idToken: result.data.idToken, localId: result.data.localId}));
         }
     }, [result])
 
@@ -69,9 +61,11 @@ const Login = ({ navigation }) => {
                     error={errorPassword}
                     isSecure={true}
                 />
-                <Pressable onPress={onSubmit} onPressIn={() => setIsPressedConfirm(true)} onPressOut={() => setIsPressedConfirm(false)}>
-                    <View><FontAwesome5 name="check-circle" size={40} color={isPressedConfirm ? colors.gray800 : colors.gray100}/></View>
-                </Pressable>
+                <CustomButton
+                    name={"check-circle"}
+                    size={40}
+                    onConfirm={onSubmit}
+                />
                 <Text style={styles.sub}>Create a new account</Text>
                 <Pressable onPress={() => navigation.navigate("Signup")}>
                     <Text style={styles.subLink}>Sign up</Text>
@@ -96,26 +90,25 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: colors.gray800,
+        backgroundColor: colors.gray600,
         gap: 15,
         paddingVertical: 20,
         borderRadius: 10,
-        backgroundColor: colors.gray500        
     },
     title: {
         fontSize: 22,
-        colors: colors.allBlack,
-        fontWeight: 'bold'
+        color: colors.allBlack,
+        fontWeight: "bold"
     },
     sub: {
         fontSize: 14,
         color: colors.allBlack,
-        fontWeight: 'bold'
+        fontWeight: "bold"
 
     },
     subLink: {
         fontSize: 14,
         color: "blue",
-        fontWeight: 'bold'
+        fontWeight: "bold"
     },
 })
