@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux"
 import { loginSchema } from "../../validations/authSchema";
 import InputForm from "../../components/custom/InputForm"
 import CustomButton from "../../components/custom/customButton"
+import { insertSession } from "../../persistence"
 
 const Login = ({ navigation }) => {
     const [triggerSignIn, result] = useSignInMutation()
@@ -42,8 +43,20 @@ const Login = ({ navigation }) => {
     }
 
     useEffect(() => {
-        if (result.isSuccess) {
-            dispatch(setUser({email: result.data.email, idToken: result.data.idToken, localId: result.data.localId}));
+        if (result?.data && result.isSuccess) {
+            insertSession({
+                email: result.data.email,
+                localId: result.data.localId,
+                idToken: result.data.idToken,
+            })
+                .then((response) => {
+                    dispatch(
+                        setUser({email: result.data.email, idToken: result.data.idToken, localId: result.data.localId})
+                    )
+                })
+                .catch((error) => {
+                    alert(error.message)
+                })
         }
     }, [result])
 

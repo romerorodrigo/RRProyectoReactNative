@@ -67,9 +67,14 @@ export const cartSlice = createSlice({
                 state.value.total = total;
                 state.value.updatedAt = new Date().toLocaleString();
             }
-        }
+        },
+        clearCart: (state) => {
+            state.value.items = [];
+            state.value.total = null;
+            state.value.updatedAt = new Date().toLocaleString();
+        }        
     },
 })
 
-export const { addCartItem, removeCartItem } = cartSlice.actions
+export const { addCartItem, removeCartItem, clearCart } = cartSlice.actions
 export default cartSlice.reducer

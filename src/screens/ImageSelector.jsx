@@ -35,7 +35,7 @@ const ImageSelector = ({ navigation }) => {
                 }
             }
         } catch (error) {
-            alert(error);
+            alert(error.message);
         }
     };
     

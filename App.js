@@ -3,6 +3,14 @@ import { colors } from './src/constants/colors';
 import Navigator from './src/navigation/Navigator';
 import { Provider } from "react-redux"
 import store from "./src/store"
+import { initSQLiteDB } from './src/persistence';
+
+(async ()=> {
+  try {
+      const response = await initSQLiteDB()
+  } catch (error) {
+  }
+})()
 
 export default function App() {
   return (

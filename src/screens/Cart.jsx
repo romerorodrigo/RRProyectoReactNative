@@ -1,21 +1,23 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React from 'react'
 import CartItem from '../components/CartItem';
 import { colors } from '../constants/colors';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { usePostOrderMutation } from '../services/shopService';
-import { useNavigation } from '@react-navigation/native';
 import CustomButton from '../components/custom/customButton';
+import { clearCart } from '../features/cartSlice';
 
-const Cart = ( route, navigation) => {
+const Cart = () => {
+    const {localId} = useSelector(state => state.auth.value)
     const {items: CartData, total} = useSelector(state => state.cart.value)
     const [triggerPostOrder, result] = usePostOrderMutation()
-    const {user} = useSelector(state => state.auth.value)
-    const onNavigate = useNavigation();
+    const dispatch = useDispatch()
 
     const onConfirmOrder = () => {
-        triggerPostOrder({items: CartData, user: user, total})
+        triggerPostOrder({items: CartData, user: localId, total})
+        dispatch(clearCart())
     }
+
     return (
     total ? 
     <View style={styles.container}>

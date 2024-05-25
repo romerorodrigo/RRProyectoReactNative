@@ -1,17 +1,29 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Alert, Image, StyleSheet, View } from "react-native";
 import React from "react";
 import AddButton from "../components/custom/AddButton"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useGetProfileImageQuery } from "../services/shopService";
 import { colors } from "../constants/colors";
+import { truncateSessionsTable } from "../persistence";
+import { clearUser } from "../features/userSlice";
 
 const Profile = ({navigation}) => {
+    const dispatch = useDispatch()
     const {imageCamera, localId} = useSelector(state => state.auth.value)
     const {data: imageFromBase} = useGetProfileImageQuery(localId)
 
     const launchCamera = async () => {
         navigation.navigate('ImageSelectorScreen')
     };
+
+    const signOut = async () => {
+        try {
+            const response = await truncateSessionsTable()
+            dispatch(clearUser())
+        } catch (error) {
+            alert(error.message);
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -29,6 +41,7 @@ const Profile = ({navigation}) => {
                 />
             )}
             <AddButton onPress={launchCamera} style={styles.profileButton} title="Add profile photo" />
+            <AddButton onPress={signOut} title="Sign out" />
         </View>
     );
 };
