@@ -14,7 +14,9 @@ const Cart = () => {
     const dispatch = useDispatch()
 
     const onConfirmOrder = () => {
-        triggerPostOrder({items: CartData, user: localId, total})
+        const createdAt = new Date().toISOString()
+        const order = triggerPostOrder({items: CartData, user: localId, total, createdAt})
+        console.log(order)
         dispatch(clearCart())
     }
 

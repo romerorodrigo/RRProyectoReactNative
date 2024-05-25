@@ -2,12 +2,15 @@ import { StyleSheet, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { colors } from "../constants/colors";
+import CustomButton from "./custom/customButton";
 
 const OrderItem = ({ order }) => {
     const total = order.items.reduce(
         (acc, currentItem) => (acc += currentItem.price * currentItem.quantity),
         0
     );
+
+    const handleViewOrder = () => {console.log(order)}
 
     return (
         <View style={styles.card} onPress={() => {}}>
@@ -17,7 +20,11 @@ const OrderItem = ({ order }) => {
                 </Text>
                 <Text style={styles.text2}>${total}</Text>
             </View>
-            <Feather name="search" size={30} color={colors.gray200} />
+            <CustomButton
+                name={"search"}
+                size={30}
+                onConfirm={handleViewOrder}
+            />
         </View>
     );
 };

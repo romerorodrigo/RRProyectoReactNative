@@ -8,8 +8,7 @@ import { initSQLiteDB } from './src/persistence';
 (async ()=> {
   try {
       const response = await initSQLiteDB()
-  } catch (error) {
-  }
+  } catch (error) {}
 })()
 
 export default function App() {

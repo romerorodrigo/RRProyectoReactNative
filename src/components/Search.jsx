@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native"
 import { FontAwesome5 } from "@expo/vector-icons"
 import { colors } from "../constants/colors"
+import CustomButton from "./custom/customButton"
 
 const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
   const [keyword, setKeyword] = useState("")
@@ -12,6 +13,8 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
     onSearch(keyword)
   }, [keyword])
 
+  const handleEraser = () => {setKeyword("")}
+
   return (
     <View style={styles.container}>
       <TextInput
@@ -20,12 +23,16 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
         value={keyword}
         onChangeText={setKeyword}
       />
-      <Pressable onPress={() => setKeyword("")} onPressIn={() => setIsPressedErase(true)} onPressOut={() => setIsPressedErase(false)}>
-        <FontAwesome5 name="eraser" size={35} color={isPressedErase ? colors.gray800 : colors.gray200} />
-      </Pressable>
-      <Pressable onPress={goBack} onPressIn={() => setIsPressedBack(true)} onPressOut={() => setIsPressedBack(false)}>
-        <FontAwesome5 name="backspace" size={35} color={isPressedBack ? colors.gray800 : colors.gray200} />
-      </Pressable>
+      <CustomButton
+          name={"eraser"}
+          size={35}
+          onConfirm={handleEraser}
+      />
+      <CustomButton
+          name={"backspace"}
+          size={35}
+          onConfirm={goBack}
+      />
       {error ? <Text>{error}</Text> : null}
     </View>
   )

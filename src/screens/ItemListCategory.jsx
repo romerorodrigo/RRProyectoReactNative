@@ -24,9 +24,11 @@ const ItemListCategory = ({setCategorySelected = ()=> {},
     }
   }, [keyWord, categorySelected, prodFetch, isLoading])
 
+  const handleGoBack = () => {navigation.goBack()}
+
   return (
     <View style={styles.flatListContainer}>
-      <Search error = {error} onSearch={setKeyword} goBack={()=> navigation.goBack()}/>
+      <Search error = {error} onSearch={setKeyword} goBack={handleGoBack}/>
       <FlatList
         data = {productsFiltered}
         renderItem = {({item})=> <ProductItem product={item} navigation={navigation}/>}

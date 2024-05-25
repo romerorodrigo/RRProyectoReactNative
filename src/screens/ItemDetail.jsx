@@ -5,6 +5,7 @@ import { colors } from "../constants/colors"
 import { useDispatch } from "react-redux"
 import { useGetProductByIdQuery } from "../services/shopService"
 import { addCartItem } from "../features/cartSlice"
+import CustomButton from "../components/custom/customButton"
   
   const ItemDetail = ({route, navigation }) => {
 
@@ -22,6 +23,8 @@ import { addCartItem } from "../features/cartSlice"
       else setOrientation("portrait")
     }, [width, height])
   
+    const handleGoBack = () => {navigation.goBack()}
+
     return (
         <View style={orientation === "portrait" ? styles.generalView : styles.generalViewLandscape}>
         {product ? (
@@ -32,12 +35,16 @@ import { addCartItem } from "../features/cartSlice"
                 <Text style={styles.descStyle}>{product.description}</Text>
                 <Text style={styles.price}>${product.price}</Text>
                 <View style={orientation === "portrait" ? styles.buttonContainer : styles.buttonContainerLandscape}>
-                    <Pressable onPress={() => navigation.goBack()} onPressIn={() => setIsPressedBack(true)} onPressOut={() => setIsPressedBack(false)}>
-                        <FontAwesome5 name="backspace" size={40} color={isPressedBack ? colors.gray800 : colors.gray200} />
-                    </Pressable>
-                    <Pressable onPress={handleAddCart} onPressIn={() => setIsPressedCart(true)} onPressOut={() => setIsPressedCart(false)}>
-                        <FontAwesome5 name="cart-plus" size={40} color={isPressedCart ? colors.gray800 : colors.gray200}/>
-                    </Pressable>
+                <CustomButton
+                    name={"backspace"}
+                    size={40}
+                    onConfirm={handleGoBack}
+                />
+                <CustomButton
+                    name={"cart-plus"}
+                    size={40}
+                    onConfirm={handleAddCart}
+                />
                 </View>
             </View>
         </View>
