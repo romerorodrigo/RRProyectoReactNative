@@ -1,19 +1,18 @@
-import {Image,Pressable,StyleSheet,Text,View,useWindowDimensions} from "react-native"
+import {Image,StyleSheet,Text,View,useWindowDimensions} from "react-native"
 import React, { useEffect, useState } from "react"
-import { FontAwesome5 } from "@expo/vector-icons"
 import { colors } from "../constants/colors"
 import { useDispatch } from "react-redux"
 import { useGetProductByIdQuery } from "../services/shopService"
 import { addCartItem } from "../features/cartSlice"
 import CustomButton from "../components/custom/customButton"
+import Swiper from "react-native-swiper";
+
   
   const ItemDetail = ({route, navigation }) => {
 
     const dispatch = useDispatch()
     const [orientation, setOrientation] = useState("portrait")
     const { width, height } = useWindowDimensions()
-    const [isPressedCart, setIsPressedCart] = useState(false);
-    const [isPressedBack, setIsPressedBack] = useState(false);
     const {productId: idSelected} = route.params 
     const {data: product, error, isLoading} = useGetProductByIdQuery(idSelected)
     const handleAddCart = () => {dispatch(addCartItem({...product, quantity: 1}))}
@@ -29,7 +28,13 @@ import CustomButton from "../components/custom/customButton"
         <View style={orientation === "portrait" ? styles.generalView : styles.generalViewLandscape}>
         {product ? (
         <View style={orientation === "portrait" ? styles.mainContainer : styles.mainContainerLandscape}>
-            <Image source={{ uri: product.images[0] }} style={orientation === "portrait" ? styles.image : styles.imageLandscape}/>
+            <Swiper style={styles.wrapper} showsButtons={true}>
+            {product.images.map((image, index) => (
+                <View key={index} style={styles.slide}>
+                <Image source={{ uri: image }} style={styles.image} />
+                </View>
+            ))}
+            </Swiper>
             <View style={orientation === "portrait" ? styles.textContainer : styles.textContainerLandscape}>
                 <Text style={styles.titleStyle}>{product.title}</Text>
                 <Text style={styles.descStyle}>{product.description}</Text>
@@ -72,6 +77,8 @@ import CustomButton from "../components/custom/customButton"
         
     },    
     mainContainer: {
+        marginTop: 30,
+        marginBottom: 30,
         width: '90%',
         flexDirection: "column",
         justifyContent: "center",
@@ -85,7 +92,7 @@ import CustomButton from "../components/custom/customButton"
     },
     image: {
         width: '100%',
-        height: '60%',
+        height: '100%',
         borderRadius: 10,
         padding: 10,
         borderWidth: 3,      
@@ -105,16 +112,19 @@ import CustomButton from "../components/custom/customButton"
     },
     textContainer: {
         width: '100%',
+        height: '40%',
         marginTop: 20,
         borderRadius: 10,
         borderWidth: 3,
         backgroundColor:colors.gray900,        
         borderColor: colors.gray200,
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
     },
       textContainerLandscape: {
-        width: '70%',
+        width: '65%',
+        height: '100%',
+        marginRight: 10,
         flexDirection: 'column',
         borderRadius: 10,
         borderWidth: 3,
@@ -164,5 +174,14 @@ import CustomButton from "../components/custom/customButton"
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 20
-    }    
+    },
+    wrapper: {
+        height: '100%',
+    },
+    slide: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.allBlack,
+    },
   })  

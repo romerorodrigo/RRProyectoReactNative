@@ -1,23 +1,29 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import CartItem from '../components/CartItem';
 import { colors } from '../constants/colors';
 import { useDispatch, useSelector } from 'react-redux';
 import { usePostOrderMutation } from '../services/shopService';
 import CustomButton from '../components/custom/customButton';
 import { clearCart } from '../features/cartSlice';
+import CustomAlert from '../components/custom/CustomAlert';
 
 const Cart = () => {
     const {localId} = useSelector(state => state.auth.value)
     const {items: CartData, total} = useSelector(state => state.cart.value)
     const [triggerPostOrder, result] = usePostOrderMutation()
     const dispatch = useDispatch()
+    const [showAlert, setShowAlert] = useState(false);
+
+    const handleCloseAlert = () => {
+      setShowAlert(false);
+    };
 
     const onConfirmOrder = () => {
         const createdAt = new Date().toISOString()
         const order = triggerPostOrder({items: CartData, user: localId, total, createdAt})
-        console.log(order)
         dispatch(clearCart())
+        setShowAlert(true)
     }
 
     return (
@@ -39,10 +45,18 @@ const Cart = () => {
     </View>
     :
     <View style={styles.container}>
+        {showAlert && 
+            (
+            <CustomAlert
+                message="Order successfully generated. Thank you for your purchase. You can view your order in the purchase orders list."
+                onClose={handleCloseAlert}
+            />
+        )}
         <View style={styles.textEmptyContainer}>
             <Text style={styles.textEmptyCart}>Cart is empty</Text>
         </View>
-    </View>        
+    </View>
+
   )
 }
 

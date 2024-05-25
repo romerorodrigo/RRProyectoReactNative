@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: colors.gray800,
+        backgroundColor: colors.gray600,
         gap: 15,
         paddingVertical: 20,
         borderRadius: 10,   

@@ -1,16 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Feather } from "@expo/vector-icons";
-import React from "react";
+import React, { useState } from "react";
 import { colors } from "../constants/colors";
 import CustomButton from "./custom/customButton";
+import OrderDetail from "./OrderDetail";
 
 const OrderItem = ({ order }) => {
+    const [modalVisible, setModalVisible] = useState(false);
     const total = order.items.reduce(
         (acc, currentItem) => (acc += currentItem.price * currentItem.quantity),
         0
     );
 
-    const handleViewOrder = () => {console.log(order)}
+    const handleViewOrder = () => {setModalVisible(true);};
+    const handleCloseModal = () => {setModalVisible(false);};
 
     return (
         <View style={styles.card} onPress={() => {}}>
@@ -24,6 +26,11 @@ const OrderItem = ({ order }) => {
                 name={"search"}
                 size={30}
                 onConfirm={handleViewOrder}
+            />
+            <OrderDetail
+                visible={modalVisible}
+                onClose={handleCloseModal}
+                order={order}
             />
         </View>
     );
