@@ -35,7 +35,7 @@ const ImageSelector = ({ navigation }) => {
                 }
             }
         } catch (error) {
-            alert(error.message);
+            alert("Error picking the image");
         }
     };
     
@@ -47,7 +47,7 @@ const ImageSelector = ({ navigation }) => {
                 navigation.goBack()
             }
         } catch (error) {
-            alert(error);
+            alert("Error confirming the image");
         }
     };
 

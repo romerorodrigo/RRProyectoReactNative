@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Pressable, StyleSheet, Text, View } from "react-native"
+import { Platform, Pressable, StyleSheet, Text, View } from "react-native"
 import { colors } from "../../constants/colors"
 import { useSignInMutation } from "../../services/serviceAuth"
 import { setUser } from "../../features/userSlice"
@@ -44,19 +44,18 @@ const Login = ({ navigation }) => {
 
     useEffect(() => {
         if (result?.data && result.isSuccess) {
-            insertSession({
-                email: result.data.email,
-                localId: result.data.localId,
-                idToken: result.data.idToken,
-            })
-                .then((response) => {
+            (async ()=> {
+                try {
+                    if (Platform.OS !== 'web') {
+                        const response = await insertSession({email: result.data.email, localId: result.data.localId, idToken: result.data.idToken,})
+                    }
                     dispatch(
-                        setUser({email: result.data.email, idToken: result.data.idToken, localId: result.data.localId})
+                        setUser({email: result.data.email, idToken: result.data.idToken, localId: result.data.localId,})
                     )
-                })
-                .catch((error) => {
-                    alert(error.message)
-                })
+                } catch (error) {
+                    alert("Login session error");
+                }
+            })()
         }
     }, [result])
 

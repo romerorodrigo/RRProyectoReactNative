@@ -1,4 +1,4 @@
-import {Image,StyleSheet,Text,View,useWindowDimensions} from "react-native"
+import {Image,Platform,StyleSheet,Text,View,useWindowDimensions} from "react-native"
 import React, { useEffect, useState } from "react"
 import { colors } from "../constants/colors"
 import { useDispatch } from "react-redux"
@@ -28,13 +28,16 @@ import Swiper from "react-native-swiper";
         <View style={orientation === "portrait" ? styles.generalView : styles.generalViewLandscape}>
         {product ? (
         <View style={orientation === "portrait" ? styles.mainContainer : styles.mainContainerLandscape}>
-            <Swiper style={styles.wrapper} showsButtons={true}>
-            {product.images.map((image, index) => (
-                <View key={index} style={styles.slide}>
-                <Image source={{ uri: image }} style={styles.image} />
-                </View>
-            ))}
-            </Swiper>
+            {(Platform.OS !== 'web') ? (
+                <Swiper style={styles.wrapper} showsButtons={true}>
+                {product.images.map((image, index) => (
+                    <View key={index} style={styles.slide}>
+                    <Image source={{ uri: image }} style={styles.image} />
+                    </View>
+                ))}
+                </Swiper>) : 
+                <Image source={{ uri: product.images[0] }} style={orientation === "portrait" ? styles.imageAlt : styles.imageLandscapeAlt}/>
+            }
             <View style={orientation === "portrait" ? styles.textContainer : styles.textContainerLandscape}>
                 <Text style={styles.titleStyle}>{product.title}</Text>
                 <Text style={styles.descStyle}>{product.description}</Text>
@@ -100,6 +103,16 @@ import Swiper from "react-native-swiper";
         backgroundColor:colors.allBlack,
         borderColor: colors.gray200
     },
+    imageAlt: {
+        width: '100%',
+        height: '60%',
+        borderRadius: 10,
+        padding: 10,
+        borderWidth: 3,      
+        resizeMode: 'contain',  
+        backgroundColor:colors.allBlack,
+        borderColor: colors.gray200
+    },
     imageLandscape: {
         width: '30%',
         height: '100%',
@@ -110,6 +123,16 @@ import Swiper from "react-native-swiper";
         backgroundColor:colors.allBlack,
         borderColor: colors.gray200
     },
+    imageLandscapeAlt: {
+        width: '30%',
+        height: '100%',
+        borderRadius: 10,
+        padding: 10,
+        borderWidth: 3,      
+        resizeMode: 'contain', 
+        backgroundColor:colors.allBlack,
+        borderColor: colors.gray200
+    },    
     textContainer: {
         width: '100%',
         height: '40%',
